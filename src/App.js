@@ -18,16 +18,13 @@ function App() {
   
 }, [])
 
-const highDefImage = () => {
-  
-}
 
   return (
     <div className="App">
       <h1>NASA Photo of the Day</h1>
       <p>Welcome to the cosmos! Each day we'll show you a different image of our beautiful universe with a description written by a professional astronomer!</p>      
       <p className='date'>Date: {data.date}</p>  
-      <Body title={data.title} image={data.url} explanation={data.explanation} copyright={data.copyright} />
+      <Body title={data.title} image={data.url} explanation={data.explanation} copyright={data.copyright} hdurl={data.hdurl} />
       <div>
       </div>
     </div>
