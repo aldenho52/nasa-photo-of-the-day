@@ -3,6 +3,12 @@ import "./App.css";
 import Body from './Body'
 import axios from 'axios'
 import Dropdown from './Dropdown'
+import Header from './header'
+import styled from 'styled-components'
+
+const StyledApp = styled.div`
+  /* background: ${pr=> pr.theme.background}; */
+`
 
 function App() {
   const [data, setData] = useState([])
@@ -20,13 +26,11 @@ function App() {
 }, [])
 
   return (
-    <div className="App">
-      <h1>NASA Photo of the Day</h1>
-      <p>Welcome to the cosmos! Each day we'll show you a different image of our beautiful universe with a description written by a professional astronomer!</p>      
-      <p className='date'>Date: {data.date}</p>
+    <StyledApp className="App">
+      <Header data={data}/>
       <Body title={data.title} image={data.url} explanation={data.explanation} copyright={data.copyright} hdurl={data.hdurl} />
       <Dropdown date={data.date}/>  
-    </div>
+    </StyledApp>
   );
 }
 
