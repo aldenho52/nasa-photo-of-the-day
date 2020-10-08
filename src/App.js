@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Body from './Body'
 import axios from 'axios'
+import Dropdown from './Dropdown'
 
 function App() {
   const [data, setData] = useState([])
@@ -18,15 +19,13 @@ function App() {
   
 }, [])
 
-
   return (
     <div className="App">
       <h1>NASA Photo of the Day</h1>
       <p>Welcome to the cosmos! Each day we'll show you a different image of our beautiful universe with a description written by a professional astronomer!</p>      
-      <p className='date'>Date: {data.date}</p>  
+      <p className='date'>Date: {data.date}</p>
       <Body title={data.title} image={data.url} explanation={data.explanation} copyright={data.copyright} hdurl={data.hdurl} />
-      <div>
-      </div>
+      <Dropdown date={data.date}/>  
     </div>
   );
 }
